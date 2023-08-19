@@ -1,0 +1,16 @@
+services:
+  otp-26-crash-7292:
+    build: .
+    container_name: otp-26-crash-7292
+    tty: true
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    entrypoint:
+      - /app/entrypoint.sh
+    ulimits:
+      core:
+        soft: -1
+        hard: -1
+    cap_add:
+      - SYS_PTRACE
